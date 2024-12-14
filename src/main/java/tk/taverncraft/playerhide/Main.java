@@ -21,6 +21,7 @@ import tk.taverncraft.playerhide.worldguard.WorldGuardManager;
  */
 public class Main extends JavaPlugin {
 
+    public static Main instance;
     private static final Logger log = Logger.getLogger("Minecraft");
 
     // Config
@@ -34,6 +35,7 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onLoad() {
+        instance = this;
         if (Bukkit.getPluginManager().getPlugin("WorldGuard") != null) {
             this.worldGuardManager = new WorldGuardManager(this);
             getLogger().info("Successfully integrated with WorldGuard!");
@@ -47,6 +49,7 @@ public class Main extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        instance = this;
         new UpdateChecker(this, 105677).getVersion(version -> {
             if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
                 getLogger().info("You are using the latest version of PlayerHide!");

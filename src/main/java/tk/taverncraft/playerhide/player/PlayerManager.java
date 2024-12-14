@@ -23,6 +23,8 @@ import tk.taverncraft.playerhide.Main;
 import tk.taverncraft.playerhide.utils.MessageManager;
 import tk.taverncraft.playerhide.utils.StringUtils;
 
+import static tk.taverncraft.playerhide.utils.SoundUtil.playSound;
+
 /**
  * In charge of handling players affected by player hide.
  */
@@ -141,6 +143,8 @@ public class PlayerManager {
      * @param player player who toggled to HIDDEN state
      */
     public void hidePlayers(Player player) {
+        playSound(player, "item.sound");
+
         for (Map.Entry<UUID, PlayerState> set : this.playerStates.entrySet()) {
             Player p = Bukkit.getPlayer(set.getKey());
             if (player != p && !p.hasPermission(exemptPerm)) {
@@ -155,6 +159,8 @@ public class PlayerManager {
      * @param player player who toggled to VISIBLE state
      */
     public void showPlayers(Player player) {
+        playSound(player, "item.sound");
+
         for (Map.Entry<UUID, PlayerState> set : this.playerStates.entrySet()) {
             Player p = Bukkit.getPlayer(set.getKey());
             if (player != p) {

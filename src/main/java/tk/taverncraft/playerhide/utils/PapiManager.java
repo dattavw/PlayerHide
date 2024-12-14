@@ -19,7 +19,7 @@ public class PapiManager extends PlaceholderExpansion {
 
     @Override
     public String getAuthor() {
-        return "tjtanjin - FrozenFever";
+        return "tjtanjin - FrozenFever - datta";
     }
 
     @Override

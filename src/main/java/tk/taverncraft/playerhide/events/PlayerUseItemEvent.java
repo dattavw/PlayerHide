@@ -14,6 +14,8 @@ import tk.taverncraft.playerhide.Main;
 import tk.taverncraft.playerhide.player.PlayerState;
 import tk.taverncraft.playerhide.utils.MessageManager;
 
+import static tk.taverncraft.playerhide.utils.SoundUtil.playSound;
+
 /**
  * PlayerUseItemEvent handles the event when a player tries to use an item.
  */
@@ -66,11 +68,13 @@ public class PlayerUseItemEvent implements Listener {
                 Bukkit.getScheduler().runTaskLater(this.main, () -> {
                     main.getPlayerManager().givePlayerItem(player, false);
                 }, 1L);
+
                 MessageManager.sendMessage(player, "toggle-self-success",
                     new String[]{"%player%", "%state%"},
                     new String[]{player.getName(),
                         main.getPlayerManager().getParsedPlayerState(player)});
             } else {
+
                 MessageManager.sendMessage(player, "toggle-self-fail",
                     new String[]{"%player%"},
                     new String[]{player.getName()});

@@ -8,7 +8,7 @@
 lang-file: 'en.yml'
 
 # if true, will hide all players on join (i.e. playerhide toggled on during
-hide-on-join: true
+hide-on-join: false
 
 # particles can be used from https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Particle.html
 # set to "NONE" for complete invisibility
@@ -22,34 +22,28 @@ particle-count: 3
 #                                                                                   #
 #####################################################################################
 
-# provide item for player to toggle visibility on join
 item-on-join: true
-
-# allow players to drop the item
 allow-drop: false
-
-# allow players to move the item
 allow-move: false
 
-# material, name, slot of item and whether item should be enchanted
 item:
-  name: "&bPlayerHide Stick"
-  slot: 0
-  material: STICK
+  name: "&aMostrando a todos &8› &fClick para cambiar"
+  slot: 5
+  material: LIME_DYE
+  sound: ENTITY_ARMADILLO_EAT;100;3
   enchanted: false
   lore:
-    - "&6Right click &ato toggle on!"
+    - ""
 
-# optional item that is shown when playerhide is toggled on (i.e. players are hidden)
-# if disabled, will only use the item defined above
 item-toggled-on:
   disabled: false
-  name: "&bPlayerHide Stick"
-  slot: 0
-  material: STICK
-  enchanted: true
+  name: "&7Ocultando a todos &8› &fClick para cambiar"
+  slot: 5
+  sound: ENTITY_ARMADILLO_EAT;100;3
+  material: GRAY_DYE
+  enchanted: false
   lore:
-    - "&6Right click &ato toggle off!"
+    - ""
 
 #####################################################################################
 #                                                                                   #
