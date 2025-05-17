@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import tk.taverncraft.playerhide.commands.CommandParser;
@@ -81,16 +82,22 @@ public class Main extends JavaPlugin {
         } catch (NullPointerException e) {
             this.getLogger().info(e.getMessage());
             this.getLogger().info("[PlayerHide] Is your config.yml " +
-                "updated/set up correctly?");
+                    "updated/set up correctly?");
             getServer().getPluginManager().disablePlugin(this);
         }
 
         if (Bukkit.getVersion().contains("1.8") || Bukkit.getVersion().contains("1.9")
-            || Bukkit.getVersion().contains("1.10") || Bukkit.getVersion().contains("1.11")
-            || Bukkit.getVersion().contains("1.12")) {
+                || Bukkit.getVersion().contains("1.10") || Bukkit.getVersion().contains("1.11")
+                || Bukkit.getVersion().contains("1.12")) {
             Bukkit.getScheduler().runTaskLater(this, this::loadDependencies, 1);
         } else {
             this.getServer().getPluginManager().registerEvents(new DependencyLoadEvent(this), this);
+        }
+
+        for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
+            if (playerManager != null) {
+                playerManager.givePlayerItem(onlinePlayer, true);
+            }
         }
     }
 

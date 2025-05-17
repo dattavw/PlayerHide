@@ -27,7 +27,7 @@ allow-drop: false
 allow-move: false
 
 item:
-  name: "&aMostrando a todos &8› &fClick para cambiar"
+  name: "&aMostrando a todos &8» &fClick para cambiar"
   slot: 5
   material: LIME_DYE
   sound: ENTITY_ARMADILLO_EAT;100;3
@@ -37,7 +37,7 @@ item:
 
 item-toggled-on:
   disabled: false
-  name: "&7Ocultando a todos &8› &fClick para cambiar"
+  name: "&7Ocultando a todos &8» &fClick para cambiar"
   slot: 5
   sound: ENTITY_ARMADILLO_EAT;100;3
   material: GRAY_DYE
